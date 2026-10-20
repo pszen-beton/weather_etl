@@ -4,3 +4,4 @@ venv/
 __pycache__/
 .git/
 .env
+lab.py

@@ -24,12 +24,12 @@ class BaseWeatherClient(ABC):
             logger.error(f"Request to {url} timed out after {self.timeout} seconds.")
             raise
         except requests.exceptions.HTTPError as e:
-            logger.error(f"HTTP error occurred for {url}: {e.response.status_code} - {e.response.text}")
+            logger.error(f"HTTP error occurred for {url}: {e}")
             raise
         except requests.exceptions.RequestException as e:
             logger.error(f"An error occurred while making the request: {e}")
             raise
 
     @abstractmethod
-    def fetch_weather_data(self, city: str, country: str) -> dict:
+    def fetch_weather_data(self, lat: float, lon: float) -> dict:
         pass
